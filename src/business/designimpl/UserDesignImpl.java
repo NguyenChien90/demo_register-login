@@ -26,7 +26,7 @@ public class UserDesignImpl implements IUserDesign {
     }
 
     @Override
-    public Integer findIndexById(User id) {
+    public Integer findIndexById(Integer id) {
         return null;
     }
 
