@@ -9,7 +9,7 @@ public class IOFile {
 	public static final String PATH_CATEGORY = "src/business/data/category.txt";
 	public static final String PATH_PRODUCT = "src/business/data/product.txt";
 	public static final String PATH_USER = "src/business/data/user.txt";
-	public static final String PATH_USER_PRINCIPAL = "src/business/data/userPricipal.txt";
+	public static final String PATH_USER_PRINCIPAL = "src/business/data/userPrincipal.txt";
 
 
 	public static <T> void writeObjectToFile(T t, String path) {
