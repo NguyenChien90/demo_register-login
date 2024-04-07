@@ -5,8 +5,8 @@ import business.entity.RoleName;
 import business.entity.User;
 import business.utils.IOFile;
 import business.utils.InputMethods;
-import presentation.MenuAdmin;
-import presentation.MenuUser;
+import presentation.ViewAdmin;
+import presentation.ViewUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,10 +118,10 @@ public class UserDesignImpl implements IUserDesign {
         }else {
             IOFile.writeObjectToFile(userLogin,IOFile.PATH_USER_PRINCIPAL);
             if (userLogin.getRole().equals(RoleName.ADMIN)){
-                new MenuAdmin().menuAdmin(); // role ADMIN chuyển đến menu của ADMIN
+                new ViewAdmin().menuAdmin(); // role ADMIN chuyển đến menu của ADMIN
             }
             if (userLogin.getRole().equals(RoleName.USER)){
-                new MenuUser().menuUser(); // role USER chuyển đến menu của USER
+                new ViewUser().menuUser(); // role USER chuyển đến menu của USER
             }
 
         }

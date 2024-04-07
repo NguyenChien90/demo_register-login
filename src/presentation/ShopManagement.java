@@ -6,14 +6,10 @@ import business.design.IUserDesign;
 import business.designimpl.CategoryDesignImpl;
 import business.designimpl.ProductDesignImpl;
 import business.designimpl.UserDesignImpl;
-import business.entity.Category;
 import business.entity.RoleName;
 import business.entity.User;
 import business.utils.IOFile;
 import business.utils.InputMethods;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ShopManagement {
 	ICategoryDesign categoryDesign = new CategoryDesignImpl();
@@ -22,15 +18,19 @@ public class ShopManagement {
 	static ShopManagement shopManagement = new ShopManagement();
 	
 	public static void main(String[] args) {
+		// bắt đầu chay chương trình kiểm tra có user đang đăng nhập từ trước chưa logOut không trong file userPrincipal
 		User userLogin = IOFile.readObjectFromFile(IOFile.PATH_USER_PRINCIPAL);
+		//khi không có user đang đăng nhập thi vào home
 		if (userLogin == null){
 			new ShopManagement().mennuHome();
 		}else {
+			// khi co user đang đăng nhập từ trước chưa logOut thì kiểm
+			// tra role ADMIN hoặc User thì sẽ chuyển hướng sang view tương ứng
 			if (userLogin.getRole().equals(RoleName.ADMIN)){
-				new MenuAdmin().menuAdmin();
+				new ViewAdmin().menuAdmin();
 			}
 			if (userLogin.getRole().equals(RoleName.USER)){
-				new MenuUser().menuUser();
+				new ViewUser().menuUser();
 			}
 		}
 

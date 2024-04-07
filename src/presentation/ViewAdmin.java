@@ -6,17 +6,19 @@ import business.entity.User;
 import business.utils.IOFile;
 import business.utils.InputMethods;
 
-public class MenuUser {
+public class ViewAdmin {
     IUserDesign userDesign = new UserDesignImpl();
-    public void menuUser(){
+    User userLogin = IOFile.readObjectFromFile(IOFile.PATH_USER_PRINCIPAL);
+    public void menuAdmin(){
         int choice;
         do {
-            System.out.println("**********************MENU USER************************");
-            System.out.println("1. XEM DANH SACH SAN PHAM");
-            System.out.println("2. TIM KIEM SAN PHAM");
-            System.out.println("3. SAP XEP SAN PHAM THEO GIA");
-            System.out.println("4. QUAN LY GIO HAN");
-            System.out.println("5. THONG TIN CA NHAN");
+            System.out.println("Welcome : "+ userLogin.getName());
+            System.out.println("**********************MENU ADMIN************************");
+            System.out.println("1. QUAN LY THE LOAI ");
+            System.out.println("2. QUAN LY SAN PHAM");
+            System.out.println("3. QUAN LY NGUOI DUNG");
+            System.out.println("4. QUAN LY DON HANG");
+            System.out.println("5. THONG KE");
             System.out.println("0. LogOut");
             System.out.print("Mời lựa chọn (0/1/2/3/4/5): ");
             choice = InputMethods.getInteger();
@@ -41,4 +43,6 @@ public class MenuUser {
             }
         } while (true);
     }
+
+
 }
